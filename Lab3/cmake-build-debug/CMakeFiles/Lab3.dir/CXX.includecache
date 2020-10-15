@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/zacha/CLionProjects/Lab3/ABQ.h
+
+C:/Users/zacha/CLionProjects/Lab3/ABS.h
+
+C:/Users/zacha/CLionProjects/Lab3/main.cpp
+iostream
+-
+ABQ.h
+C:/Users/zacha/CLionProjects/Lab3/ABQ.h
+ABS.h
+C:/Users/zacha/CLionProjects/Lab3/ABS.h
+chrono
+-
+
