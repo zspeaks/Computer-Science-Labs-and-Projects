@@ -80,6 +80,22 @@ LinkedList<Type>::NodeClass::NodeClass(LinkedList::NodeClass *_head, LinkedList:
 
 
 // Printing
+template<typename Type>
+void LinkedList<Type>::PrintForward() const {
+    for(unsigned int i = 0; i < nodeCount; i++){
+        LinkedList<Type>::NodeClass node = * GetNode(i);
+        std::cout << node.nodeData << std::endl;
+    }
+}
+
+template<typename Type>
+void LinkedList<Type>::PrintReverse() const {
+    for(unsigned int i = nodeCount; i > 0; i--){
+        LinkedList<Type>::NodeClass node = * GetNode(i-1);
+        std::cout << node.nodeData << std::endl;
+    }
+}
+
 
 
 // Accessors
@@ -88,16 +104,83 @@ unsigned int LinkedList<Type>::NodeCount() {
     return nodeCount;
 }
 
+template<typename Type>
+const typename LinkedList<Type>::NodeClass *LinkedList<Type>::GetNode(unsigned int index) const {
+    if(index > nodeCount){
+        throw std::out_of_range("Index out of range!");
+    }
+    else{
+        const typename LinkedList<Type>::NodeClass* returnNodePointer = Head();
+        for(unsigned int i = 0;i<index;i++){
+
+            returnNodePointer = (*returnNodePointer).tail;
+        }
+        return returnNodePointer;
+    }
+}
+
+
+template<typename Type>
+typename LinkedList<Type>::NodeClass *LinkedList<Type>::GetNode(unsigned int index) {
+    if(index > nodeCount){
+        throw std::out_of_range("Index out of range!");
+    }
+    else{
+        typename LinkedList<Type>::NodeClass* returnNodePointer = Head();
+        for(unsigned int i = 0;i<index;i++){
+            returnNodePointer = (*returnNodePointer).tail;
+        }
+        return returnNodePointer;
+    }
+}
+
+template<typename Type>
+const typename LinkedList<Type>::NodeClass* LinkedList<Type>::Head() const {
+    return listHead;
+}
+
+template<typename Type>
+typename LinkedList<Type>::NodeClass* LinkedList<Type>::Head() {
+    return listHead;
+}
+
+template<typename Type>
+const typename LinkedList<Type>::NodeClass* LinkedList<Type>::Tail() const {
+    return listTail;
+}
+
+template<typename Type>
+typename LinkedList<Type>::NodeClass* LinkedList<Type>::Tail() {
+    return listTail;
+}
+
+
 // Insertion
 template<typename Type>
 void LinkedList<Type>::AddHead(Type data) {
-    listHead = new NodeClass(nullptr,listHead,data);
+    if (nodeCount > 0){
+        typename LinkedList<Type>::NodeClass* tempPointer  = listHead;
+        listHead = new NodeClass(nullptr,listHead,data);
+        (*tempPointer).head = listHead;
+    }
+    else{
+        listHead = new NodeClass(nullptr,listHead,data);
+        listTail = listHead;
+    }
     nodeCount++;
 }
 
 template<typename Type>
 void LinkedList<Type>::AddTail(Type data) {
-    listTail = new NodeClass(listTail, nullptr, data);
+    if (nodeCount > 0){
+        typename LinkedList<Type>::NodeClass* tempPointer  = listTail;
+        listTail = new NodeClass(listTail, nullptr, data);
+        (*tempPointer).tail = listTail;
+    }
+    else{
+        listTail = new NodeClass(listTail, nullptr, data);
+        listHead = listTail;
+    }
     nodeCount++;
 }
 
@@ -110,25 +193,42 @@ void LinkedList<Type>::AddNodesHead(Type *datas, unsigned int count) {
 
 template<typename Type>
 void LinkedList<Type>::AddNodesTail(Type *datas, unsigned int count) {
-    for(int i = 0; i < count; i++){
+    for(unsigned int i = 0; i < count; i++){
         AddTail(datas[i]);
     }
 }
+
 
 // Removal
 
 
 // Operators
 
+template<typename Type>
+Type &LinkedList<Type>::operator[](unsigned int index) {
+    return GetNode(index);
+}
+
 
 // Construction / Destruction
 
+template<typename Type>
+LinkedList<Type>::LinkedList() {
+    listHead = nullptr;
+    listTail = nullptr;
+    nodeCount = 0;
 
 
+}
 
-
-
-
+template<typename Type>
+LinkedList<Type>::~LinkedList() {
+    for(unsigned int i = 0; i < nodeCount; i++){
+        typename LinkedList<Type>::NodeClass* tempNodePointer = LinkedList<Type>::GetNode(1);
+        delete GetNode(0);
+        listHead = tempNodePointer;
+    }
+}
 
 
 
