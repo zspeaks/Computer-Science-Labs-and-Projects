@@ -67,10 +67,10 @@ RM = "C:\Program Files\JetBrains\CLion 2020.2.1\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\zacha\CLionProjects\Project1
+CMAKE_SOURCE_DIR = D:\Zach\Documents\Computer-Science-Labs-and-Projects\Project1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\zacha\CLionProjects\Project1\cmake-build-debug
+CMAKE_BINARY_DIR = D:\Zach\Documents\Computer-Science-Labs-and-Projects\Project1\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,9 +99,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\zacha\CLionProjects\Project1\cmake-build-debug\CMakeFiles C:\Users\zacha\CLionProjects\Project1\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Zach\Documents\Computer-Science-Labs-and-Projects\Project1\cmake-build-debug\CMakeFiles D:\Zach\Documents\Computer-Science-Labs-and-Projects\Project1\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\zacha\CLionProjects\Project1\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Zach\Documents\Computer-Science-Labs-and-Projects\Project1\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -142,33 +142,6 @@ Project1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/build
 .PHONY : Project1/fast
 
-LinkkedList.obj: LinkkedList.cpp.obj
-
-.PHONY : LinkkedList.obj
-
-# target to build an object file
-LinkkedList.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/LinkkedList.cpp.obj
-.PHONY : LinkkedList.cpp.obj
-
-LinkkedList.i: LinkkedList.cpp.i
-
-.PHONY : LinkkedList.i
-
-# target to preprocess a source file
-LinkkedList.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/LinkkedList.cpp.i
-.PHONY : LinkkedList.cpp.i
-
-LinkkedList.s: LinkkedList.cpp.s
-
-.PHONY : LinkkedList.s
-
-# target to generate assembly for a file
-LinkkedList.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/LinkkedList.cpp.s
-.PHONY : LinkkedList.cpp.s
-
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -205,9 +178,6 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Project1
-	@echo ... LinkkedList.obj
-	@echo ... LinkkedList.i
-	@echo ... LinkkedList.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

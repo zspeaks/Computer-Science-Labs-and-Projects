@@ -62,10 +62,10 @@ RM = "C:\Program Files\JetBrains\CLion 2020.2.1\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\zacha\CLionProjects\Project1
+CMAKE_SOURCE_DIR = D:\Zach\Documents\Computer-Science-Labs-and-Projects\Project1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\zacha\CLionProjects\Project1\cmake-build-debug
+CMAKE_BINARY_DIR = D:\Zach\Documents\Computer-Science-Labs-and-Projects\Project1\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Project1.dir/depend.make
@@ -78,45 +78,30 @@ include CMakeFiles/Project1.dir/flags.make
 
 CMakeFiles/Project1.dir/main.cpp.obj: CMakeFiles/Project1.dir/flags.make
 CMakeFiles/Project1.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\zacha\CLionProjects\Project1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Project1.dir/main.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Project1.dir\main.cpp.obj -c C:\Users\zacha\CLionProjects\Project1\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Zach\Documents\Computer-Science-Labs-and-Projects\Project1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Project1.dir/main.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Project1.dir\main.cpp.obj -c D:\Zach\Documents\Computer-Science-Labs-and-Projects\Project1\main.cpp
 
 CMakeFiles/Project1.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project1.dir/main.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\zacha\CLionProjects\Project1\main.cpp > CMakeFiles\Project1.dir\main.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Zach\Documents\Computer-Science-Labs-and-Projects\Project1\main.cpp > CMakeFiles\Project1.dir\main.cpp.i
 
 CMakeFiles/Project1.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project1.dir/main.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\zacha\CLionProjects\Project1\main.cpp -o CMakeFiles\Project1.dir\main.cpp.s
-
-CMakeFiles/Project1.dir/LinkkedList.cpp.obj: CMakeFiles/Project1.dir/flags.make
-CMakeFiles/Project1.dir/LinkkedList.cpp.obj: ../LinkkedList.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\zacha\CLionProjects\Project1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Project1.dir/LinkkedList.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Project1.dir\LinkkedList.cpp.obj -c C:\Users\zacha\CLionProjects\Project1\LinkkedList.cpp
-
-CMakeFiles/Project1.dir/LinkkedList.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project1.dir/LinkkedList.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\zacha\CLionProjects\Project1\LinkkedList.cpp > CMakeFiles\Project1.dir\LinkkedList.cpp.i
-
-CMakeFiles/Project1.dir/LinkkedList.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project1.dir/LinkkedList.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\zacha\CLionProjects\Project1\LinkkedList.cpp -o CMakeFiles\Project1.dir\LinkkedList.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Zach\Documents\Computer-Science-Labs-and-Projects\Project1\main.cpp -o CMakeFiles\Project1.dir\main.cpp.s
 
 # Object files for target Project1
 Project1_OBJECTS = \
-"CMakeFiles/Project1.dir/main.cpp.obj" \
-"CMakeFiles/Project1.dir/LinkkedList.cpp.obj"
+"CMakeFiles/Project1.dir/main.cpp.obj"
 
 # External object files for target Project1
 Project1_EXTERNAL_OBJECTS =
 
 Project1.exe: CMakeFiles/Project1.dir/main.cpp.obj
-Project1.exe: CMakeFiles/Project1.dir/LinkkedList.cpp.obj
 Project1.exe: CMakeFiles/Project1.dir/build.make
 Project1.exe: CMakeFiles/Project1.dir/linklibs.rsp
 Project1.exe: CMakeFiles/Project1.dir/objects1.rsp
 Project1.exe: CMakeFiles/Project1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\zacha\CLionProjects\Project1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Project1.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\Zach\Documents\Computer-Science-Labs-and-Projects\Project1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable Project1.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Project1.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -129,6 +114,6 @@ CMakeFiles/Project1.dir/clean:
 .PHONY : CMakeFiles/Project1.dir/clean
 
 CMakeFiles/Project1.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\zacha\CLionProjects\Project1 C:\Users\zacha\CLionProjects\Project1 C:\Users\zacha\CLionProjects\Project1\cmake-build-debug C:\Users\zacha\CLionProjects\Project1\cmake-build-debug C:\Users\zacha\CLionProjects\Project1\cmake-build-debug\CMakeFiles\Project1.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\Zach\Documents\Computer-Science-Labs-and-Projects\Project1 D:\Zach\Documents\Computer-Science-Labs-and-Projects\Project1 D:\Zach\Documents\Computer-Science-Labs-and-Projects\Project1\cmake-build-debug D:\Zach\Documents\Computer-Science-Labs-and-Projects\Project1\cmake-build-debug D:\Zach\Documents\Computer-Science-Labs-and-Projects\Project1\cmake-build-debug\CMakeFiles\Project1.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Project1.dir/depend
 
