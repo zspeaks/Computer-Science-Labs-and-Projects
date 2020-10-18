@@ -8,37 +8,37 @@
 template<typename Type>
 class LinkedList {
 public:
-    struct NodeClass{
-        NodeClass* head;
-        NodeClass* tail;
-        Type nodeData;
-        NodeClass(NodeClass* _head, NodeClass* _tail, Type data);
+    struct Node{
+        Node* prev;
+        Node* next;
+        Type data;
+        Node(Node* _head, Node* _tail, Type data);
     };
     // Ways to print
     void PrintForward() const;
     void PrintReverse() const;
-    void PrintForwardRecursive(const NodeClass* node) const;
-    void PrintForwardReverse(const NodeClass* node) const;
+    void PrintForwardRecursive(const Node* node) const;
+    void PrintReverseRecursive(const Node* node) const;
 
     // Accessors
     unsigned int NodeCount();
-    const NodeClass* Find(const Type& data) const;
-    NodeClass* Find(const Type& data);
-    void FindAll(std::vector<NodeClass*>& outData, const Type& data) const;
-    const NodeClass* GetNode(unsigned int index) const;
-    NodeClass* GetNode(unsigned int index);
-    const NodeClass* Head() const;
-    NodeClass* Head();
-    const NodeClass* Tail() const;
-    NodeClass* Tail();
+    const Node* Find(const Type& data) const;
+    Node* Find(const Type& data);
+    void FindAll(std::vector<Node*>& outData, const Type& data) const;
+    const Node* GetNode(unsigned int index) const;
+    Node* GetNode(unsigned int index);
+    const Node* Head() const;
+    Node* Head();
+    const Node* Tail() const;
+    Node* Tail();
 
     // Insertions
     void AddHead(Type data);
     void AddTail(Type data);
     void AddNodesHead(Type* datas, unsigned int count);
     void AddNodesTail(Type* datas, unsigned int count);
-    void InsertAfter(NodeClass* node, const Type& data);
-    void InsertBefore(NodeClass* node, const Type& data);
+    void InsertAfter(Node* node, const Type& data);
+    void InsertBefore(Node* node, const Type& data);
     void InsertAt(const Type& data, unsigned int index);
 
     // Removal
@@ -52,7 +52,7 @@ public:
     const Type& operator[](unsigned int index) const;
     Type& operator[](unsigned int index);
     bool operator ==(const LinkedList<Type>& rhs) const;
-    bool operator ==(LinkedList<Type>& rhs);
+    LinkedList<Type>& operator =(const LinkedList<Type>& rhs);
 
 
     // Construction / Destruction
@@ -60,18 +60,18 @@ public:
     LinkedList(const LinkedList<Type>& list);
     ~LinkedList();
 private:
-    NodeClass* listHead;
-    NodeClass* listTail;
+    Node* listHead;
+    Node* listTail;
     unsigned int nodeCount;
 };
 
 
-// NodeClass Method Definitions
+// Node Method Definitions
 template<typename Type>
-LinkedList<Type>::NodeClass::NodeClass(LinkedList::NodeClass *_head, LinkedList::NodeClass *_tail, Type data) {
-    head = _head;
-    tail = _tail;
-    nodeData = data;
+LinkedList<Type>::Node::Node(LinkedList::Node *_head, LinkedList::Node *_tail, Type data) {
+    prev = _head;
+    next = _tail;
+    data = data;
 }
 
 
@@ -83,19 +83,28 @@ LinkedList<Type>::NodeClass::NodeClass(LinkedList::NodeClass *_head, LinkedList:
 template<typename Type>
 void LinkedList<Type>::PrintForward() const {
     for(unsigned int i = 0; i < nodeCount; i++){
-        LinkedList<Type>::NodeClass node = * GetNode(i);
-        std::cout << node.nodeData << std::endl;
+        LinkedList<Type>::Node node = * GetNode(i);
+        std::cout << node.data << std::endl;
     }
 }
 
 template<typename Type>
 void LinkedList<Type>::PrintReverse() const {
     for(unsigned int i = nodeCount; i > 0; i--){
-        LinkedList<Type>::NodeClass node = * GetNode(i-1);
-        std::cout << node.nodeData << std::endl;
+        LinkedList<Type>::Node node = * GetNode(i - 1);
+        std::cout << node.data << std::endl;
     }
 }
 
+template<typename Type>
+void LinkedList<Type>::PrintForwardRecursive(const LinkedList::Node *node) const {
+//TODO
+}
+
+template<typename Type>
+void LinkedList<Type>::PrintReverseRecursive(const LinkedList::Node *node) const {
+//TODO
+}
 
 
 // Accessors
@@ -105,15 +114,51 @@ unsigned int LinkedList<Type>::NodeCount() {
 }
 
 template<typename Type>
-const typename LinkedList<Type>::NodeClass *LinkedList<Type>::GetNode(unsigned int index) const {
+const typename LinkedList<Type>::Node* LinkedList<Type>::Find(const Type &data) const {
+    for(unsigned int i = 0; i < nodeCount; i++){
+        LinkedList<Type>::Node* nodePointer = GetNode(i);
+        if ((*nodePointer).data == data){
+            return nodePointer;
+        }
+    }
+    return nullptr;
+}
+
+
+template<typename Type>
+typename LinkedList<Type>::Node* LinkedList<Type>::Find(const Type &data) {
+    for(unsigned int i = 0; i < nodeCount; i++){
+        LinkedList<Type>::Node* nodePointer = GetNode(i);
+        if ((*nodePointer).data == data){
+            return nodePointer;
+        }
+    }
+    return nullptr;
+}
+//TODO
+/*
+template<typename Type>
+void LinkedList<Type>::FindAll(std::vector<Node *> &outData, const Type &data) const {
+    for(unsigned int i = 0; i < nodeCount; i++){
+        const LinkedList<Type>::Node* nodePointer = this[i];
+
+        if ((*nodePointer).data == data){
+            outData.push_back(nodePointer);
+        }
+    }
+}
+*/
+
+template<typename Type>
+const typename LinkedList<Type>::Node* LinkedList<Type>::GetNode(unsigned int index) const {
     if(index > nodeCount){
         throw std::out_of_range("Index out of range!");
     }
     else{
-        const typename LinkedList<Type>::NodeClass* returnNodePointer = Head();
+        const typename LinkedList<Type>::Node* returnNodePointer = Head();
         for(unsigned int i = 0;i<index;i++){
 
-            returnNodePointer = (*returnNodePointer).tail;
+            returnNodePointer = (*returnNodePointer).next;
         }
         return returnNodePointer;
     }
@@ -121,36 +166,36 @@ const typename LinkedList<Type>::NodeClass *LinkedList<Type>::GetNode(unsigned i
 
 
 template<typename Type>
-typename LinkedList<Type>::NodeClass *LinkedList<Type>::GetNode(unsigned int index) {
+typename LinkedList<Type>::Node *LinkedList<Type>::GetNode(unsigned int index) {
     if(index > nodeCount){
         throw std::out_of_range("Index out of range!");
     }
     else{
-        typename LinkedList<Type>::NodeClass* returnNodePointer = Head();
+        typename LinkedList<Type>::Node* returnNodePointer = Head();
         for(unsigned int i = 0;i<index;i++){
-            returnNodePointer = (*returnNodePointer).tail;
+            returnNodePointer = (*returnNodePointer).next;
         }
         return returnNodePointer;
     }
 }
 
 template<typename Type>
-const typename LinkedList<Type>::NodeClass* LinkedList<Type>::Head() const {
+const typename LinkedList<Type>::Node* LinkedList<Type>::Head() const {
     return listHead;
 }
 
 template<typename Type>
-typename LinkedList<Type>::NodeClass* LinkedList<Type>::Head() {
+typename LinkedList<Type>::Node* LinkedList<Type>::Head() {
     return listHead;
 }
 
 template<typename Type>
-const typename LinkedList<Type>::NodeClass* LinkedList<Type>::Tail() const {
+const typename LinkedList<Type>::Node* LinkedList<Type>::Tail() const {
     return listTail;
 }
 
 template<typename Type>
-typename LinkedList<Type>::NodeClass* LinkedList<Type>::Tail() {
+typename LinkedList<Type>::Node* LinkedList<Type>::Tail() {
     return listTail;
 }
 
@@ -159,12 +204,12 @@ typename LinkedList<Type>::NodeClass* LinkedList<Type>::Tail() {
 template<typename Type>
 void LinkedList<Type>::AddHead(Type data) {
     if (nodeCount > 0){
-        typename LinkedList<Type>::NodeClass* tempPointer  = listHead;
-        listHead = new NodeClass(nullptr,listHead,data);
-        (*tempPointer).head = listHead;
+        typename LinkedList<Type>::Node* tempPointer  = listHead;
+        listHead = new Node(nullptr, listHead, data);
+        (*tempPointer).prev = listHead;
     }
     else{
-        listHead = new NodeClass(nullptr,listHead,data);
+        listHead = new Node(nullptr, listHead, data);
         listTail = listHead;
     }
     nodeCount++;
@@ -173,12 +218,12 @@ void LinkedList<Type>::AddHead(Type data) {
 template<typename Type>
 void LinkedList<Type>::AddTail(Type data) {
     if (nodeCount > 0){
-        typename LinkedList<Type>::NodeClass* tempPointer  = listTail;
-        listTail = new NodeClass(listTail, nullptr, data);
-        (*tempPointer).tail = listTail;
+        typename LinkedList<Type>::Node* tempPointer  = listTail;
+        listTail = new Node(listTail, nullptr, data);
+        (*tempPointer).next = listTail;
     }
     else{
-        listTail = new NodeClass(listTail, nullptr, data);
+        listTail = new Node(listTail, nullptr, data);
         listHead = listTail;
     }
     nodeCount++;
@@ -198,16 +243,102 @@ void LinkedList<Type>::AddNodesTail(Type *datas, unsigned int count) {
     }
 }
 
+template<typename Type>
+void LinkedList<Type>::InsertAfter(LinkedList::Node *node, const Type &data) {
+//TODO
+}
+
+template<typename Type>
+void LinkedList<Type>::InsertBefore(LinkedList::Node *node, const Type &data) {
+//TODO
+}
+
+template<typename Type>
+void LinkedList<Type>::InsertAt(const Type &data, unsigned int index) {
+//TODO
+}
+
 
 // Removal
+template<typename Type>
+bool LinkedList<Type>::RemoveHead() {
+    //TODO
+}
+
+template<typename Type>
+bool LinkedList<Type>::RemoveTail() {
+    //TODO
+}
+
+template<typename Type>
+unsigned int LinkedList<Type>::Remove(const Type &data) {
+    //TODO
+}
+
+template<typename Type>
+bool LinkedList<Type>::RemoveAt(unsigned int index) {
+    if(index < nodeCount){
+        try {
+            LinkedList<Type>::Node* removedNode = GetNode(index);
+            LinkedList<Type>::Node* tempHeadStorage =(*removedNode).prev;
+            LinkedList<Type>::Node* tempTailStorage =(*removedNode).next;
+            if (tempHeadStorage != nullptr){
+                (*tempHeadStorage).next = tempTailStorage;
+            }
+            if (tempTailStorage != nullptr){
+                (*tempTailStorage).prev = tempHeadStorage;
+            }
+            delete removedNode;
+            delete tempHeadStorage;
+            delete tempTailStorage;
+            nodeCount--;
+            return true;
+        }
+        catch (std::exception& e) {
+            return false;
+        }
+    }
+    return false;
+}
+
+template<typename Type>
+void LinkedList<Type>::Clear() {
+    for(unsigned int i = 0; i < nodeCount; i++){
+        RemoveAt(0);
+    }
+}
 
 
 // Operators
+template<typename Type>
+const Type &LinkedList<Type>::operator[](unsigned int index) const {
+    return GetNode(index);
+}
 
 template<typename Type>
 Type &LinkedList<Type>::operator[](unsigned int index) {
     return GetNode(index);
 }
+
+template<typename Type>
+bool LinkedList<Type>::operator==(const LinkedList<Type> &rhs) const {
+    for(unsigned int i = 0; i < nodeCount; i++){
+        if(GetNode(i) != rhs.GetNode(i)){
+            return false;
+        }
+    }
+    return true;
+}
+
+template<typename Type>
+LinkedList<Type> &LinkedList<Type>::operator=(const LinkedList<Type> &rhs) {
+    Clear();
+    for(unsigned int i = 0; i < rhs.nodeCount; i++){
+        AddTail((*rhs.GetNode(i)).data);
+    }
+    return *this;
+}
+
 
 
 // Construction / Destruction
@@ -220,11 +351,20 @@ LinkedList<Type>::LinkedList() {
 
 
 }
+template<typename Type>
+LinkedList<Type>::LinkedList(const LinkedList<Type> &list) {
+    nodeCount = 0;
+    listHead = nullptr;
+    listTail = nullptr;
+    for(unsigned int i = 0; i < list.nodeCount; i++){
+        AddTail((*list.GetNode(i)).data);
+    }
+}
 
 template<typename Type>
 LinkedList<Type>::~LinkedList() {
     for(unsigned int i = 0; i < nodeCount; i++){
-        typename LinkedList<Type>::NodeClass* tempNodePointer = LinkedList<Type>::GetNode(1);
+        typename LinkedList<Type>::Node* tempNodePointer = LinkedList<Type>::GetNode(1);
         delete GetNode(0);
         listHead = tempNodePointer;
     }
