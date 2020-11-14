@@ -12,7 +12,7 @@ public:
         Node* prev;
         Node* next;
         Type data;
-        Node(Node* _head, Node* _tail, Type data);
+        Node(Node* _head, Node* _tail, Type _data);
     };
     // Ways to print
     void PrintForward() const;
@@ -68,10 +68,10 @@ private:
 
 // Node Method Definitions
 template<typename Type>
-LinkedList<Type>::Node::Node(LinkedList::Node *_head, LinkedList::Node *_tail, Type data) {
+LinkedList<Type>::Node::Node(LinkedList::Node *_head, LinkedList::Node *_tail, Type _data) {
     prev = _head;
     next = _tail;
-    data = data;
+    data = _data;
 }
 
 
@@ -83,8 +83,8 @@ LinkedList<Type>::Node::Node(LinkedList::Node *_head, LinkedList::Node *_tail, T
 template<typename Type>
 void LinkedList<Type>::PrintForward() const {
     for(unsigned int i = 0; i < nodeCount; i++){
-        LinkedList<Type>::Node node = * GetNode(i);
-        std::cout << node.data << std::endl;
+        const LinkedList<Type>::Node* node = GetNode(i);
+        std::cout << node->data << std::endl;
     }
 }
 
@@ -97,13 +97,21 @@ void LinkedList<Type>::PrintReverse() const {
 }
 
 template<typename Type>
-void LinkedList<Type>::PrintForwardRecursive(const LinkedList::Node *node) const {
-//TODO
+void LinkedList<Type>::PrintForwardRecursive(const LinkedList::Node* node) const {
+    std::cout << node->data << std::endl;
+    if (node->next != nullptr){
+        PrintForwardRecursive(node->next);
+    }
+
 }
 
 template<typename Type>
 void LinkedList<Type>::PrintReverseRecursive(const LinkedList::Node *node) const {
-//TODO
+    std::cout << node->data << std::endl;
+    if (node->prev != nullptr){
+        PrintReverseRecursive(node->prev);
+    }
+
 }
 
 
@@ -116,7 +124,7 @@ unsigned int LinkedList<Type>::NodeCount() {
 template<typename Type>
 const typename LinkedList<Type>::Node* LinkedList<Type>::Find(const Type &data) const {
     for(unsigned int i = 0; i < nodeCount; i++){
-        LinkedList<Type>::Node* nodePointer = GetNode(i);
+        const LinkedList<Type>::Node* nodePointer = GetNode(i);
         if ((*nodePointer).data == data){
             return nodePointer;
         }
@@ -135,23 +143,19 @@ typename LinkedList<Type>::Node* LinkedList<Type>::Find(const Type &data) {
     }
     return nullptr;
 }
-//TODO
-/*
 template<typename Type>
 void LinkedList<Type>::FindAll(std::vector<Node *> &outData, const Type &data) const {
     for(unsigned int i = 0; i < nodeCount; i++){
-        const LinkedList<Type>::Node* nodePointer = this[i];
-
+        LinkedList<Type>::Node* nodePointer = const_cast<Node*>(GetNode(i));
         if ((*nodePointer).data == data){
             outData.push_back(nodePointer);
         }
     }
 }
-*/
 
 template<typename Type>
 const typename LinkedList<Type>::Node* LinkedList<Type>::GetNode(unsigned int index) const {
-    if(index > nodeCount){
+    if(index > nodeCount - 1){
         throw std::out_of_range("Index out of range!");
     }
     else{
@@ -220,7 +224,7 @@ void LinkedList<Type>::AddTail(Type data) {
     if (nodeCount > 0){
         typename LinkedList<Type>::Node* tempPointer  = listTail;
         listTail = new Node(listTail, nullptr, data);
-        (*tempPointer).next = listTail;
+        tempPointer->next = listTail;
     }
     else{
         listTail = new Node(listTail, nullptr, data);
@@ -245,34 +249,100 @@ void LinkedList<Type>::AddNodesTail(Type *datas, unsigned int count) {
 
 template<typename Type>
 void LinkedList<Type>::InsertAfter(LinkedList::Node *node, const Type &data) {
-//TODO
+    auto* newNode = new Node(node,node->next, data);
+    node->next->prev = newNode;
+    node->next = newNode;
+    nodeCount++;
 }
 
 template<typename Type>
 void LinkedList<Type>::InsertBefore(LinkedList::Node *node, const Type &data) {
-//TODO
+    auto* newNode = new Node(node->prev,node, data);
+    node->prev->next = newNode;
+    node->prev = newNode;
+    nodeCount++;
 }
 
 template<typename Type>
 void LinkedList<Type>::InsertAt(const Type &data, unsigned int index) {
-//TODO
+    if (index > nodeCount + 1){
+        throw std::out_of_range("Index is too high");
+    }
+    else{
+        if (index == 0){
+            AddHead(data);
+        }
+        else if (index == nodeCount){
+            AddTail(data);
+        }
+        else{
+            LinkedList::Node* headNode = GetNode(index - 1);
+            LinkedList::Node* tailNode = GetNode(index);
+            auto* newNode = new Node(headNode,tailNode,data);
+            nodeCount++;
+            (*headNode).next = newNode;
+            (*tailNode).prev = newNode;
+        }
+    }
 }
 
 
 // Removal
 template<typename Type>
 bool LinkedList<Type>::RemoveHead() {
-    //TODO
+    if (nodeCount > 1){
+        LinkedList::Node* newHead = listHead->next;
+        delete listHead;
+        listHead = newHead;
+        listHead->prev = nullptr;
+        nodeCount--;
+        return true;
+    }
+    else if(nodeCount == 1){
+        delete listHead;
+        nodeCount--;
+        return true;
+    }
+    else if (nodeCount == 0){
+        return false;
+    }
+    return false;
 }
 
 template<typename Type>
 bool LinkedList<Type>::RemoveTail() {
-    //TODO
+    if (nodeCount > 1) {
+        LinkedList::Node *newTail = listTail->prev;
+        delete listTail;
+        listTail = newTail;
+        listTail->next = nullptr;
+        nodeCount--;
+        return true;
+    }
+    else if(nodeCount == 1){
+        delete listTail;
+        nodeCount--;
+        return true;
+    }
+    else if (nodeCount == 0){
+        return false;
+    }
+    return false;
 }
 
 template<typename Type>
 unsigned int LinkedList<Type>::Remove(const Type &data) {
-    //TODO
+    unsigned int timesRemoved = 0;
+    LinkedList<Type>::Node* findNode = Find(data);
+    while (findNode != nullptr){
+        findNode->prev->next = findNode->next;
+        findNode->next->prev = findNode->prev;
+        delete findNode;
+        nodeCount--;
+        timesRemoved++;
+        findNode = Find(data);
+    }
+    return timesRemoved;
 }
 
 template<typename Type>
@@ -289,8 +359,6 @@ bool LinkedList<Type>::RemoveAt(unsigned int index) {
                 (*tempTailStorage).prev = tempHeadStorage;
             }
             delete removedNode;
-            delete tempHeadStorage;
-            delete tempTailStorage;
             nodeCount--;
             return true;
         }
@@ -306,24 +374,37 @@ void LinkedList<Type>::Clear() {
     for(unsigned int i = 0; i < nodeCount; i++){
         RemoveAt(0);
     }
+    listTail = nullptr;
+    listHead = nullptr;
+    nodeCount = 0;
 }
 
 
 // Operators
 template<typename Type>
 const Type &LinkedList<Type>::operator[](unsigned int index) const {
-    return GetNode(index);
+    if (index > nodeCount - 1){
+        throw std::out_of_range("Index is out of range");
+    }
+    else{
+        return (GetNode(index)->data);
+    }
 }
 
 template<typename Type>
 Type &LinkedList<Type>::operator[](unsigned int index) {
-    return GetNode(index);
+    if (index > nodeCount - 1){
+        throw std::out_of_range("Index is out of range");
+    }
+    else{
+        return (GetNode(index)->data);
+    }
 }
 
 template<typename Type>
 bool LinkedList<Type>::operator==(const LinkedList<Type> &rhs) const {
     for(unsigned int i = 0; i < nodeCount; i++){
-        if(GetNode(i) != rhs.GetNode(i)){
+        if(GetNode(i)->data != rhs.GetNode(i)->data){
             return false;
         }
     }
@@ -332,9 +413,22 @@ bool LinkedList<Type>::operator==(const LinkedList<Type> &rhs) const {
 
 template<typename Type>
 LinkedList<Type> &LinkedList<Type>::operator=(const LinkedList<Type> &rhs) {
-    Clear();
+    LinkedList<Type>::Node* currentNode = Head();
+    LinkedList<Type>::Node* nextNode;
+    for(unsigned int i = 0; i < nodeCount; i++) {
+        if (i < nodeCount - 1) {
+            nextNode = currentNode->next;
+            delete currentNode;
+            currentNode = nextNode;
+        } else {
+            delete currentNode;
+        }
+    }
+    listHead = nullptr;
+    listTail = nullptr;
+    nodeCount = 0;
     for(unsigned int i = 0; i < rhs.nodeCount; i++){
-        AddTail((*rhs.GetNode(i)).data);
+        AddTail(rhs.GetNode(i)->data);
     }
     return *this;
 }

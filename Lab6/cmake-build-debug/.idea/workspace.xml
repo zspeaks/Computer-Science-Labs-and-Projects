@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6a4dfbaf-5882-406d-a8d6-37d743c7790f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shapes.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shapes.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab4/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab4/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab4/LegoSet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab4/LegoSet.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab4/LegoSet.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab4/LegoSet.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab4/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab4/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab5/Spaceship.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab5/Spaceship.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project1/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project1/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project1/LinkedList.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project1/LinkedList.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project1/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project1/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project1/cmake-build-debug/CMakeFiles/Project1.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project1/cmake-build-debug/CMakeFiles/Project1.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project1/cmake-build-debug/CMakeFiles/Project1.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project1/cmake-build-debug/CMakeFiles/Project1.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project1/cmake-build-debug/CMakeFiles/Project1.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project1/cmake-build-debug/CMakeFiles/Project1.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project1/cmake-build-debug/CMakeFiles/Project1.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project1/cmake-build-debug/CMakeFiles/Project1.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project1/cmake-build-debug/CMakeFiles/Project1.dir/objects1.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project1/cmake-build-debug/CMakeFiles/Project1.dir/objects1.rsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project1/cmake-build-debug/CMakeFiles/Project1.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project1/cmake-build-debug/CMakeFiles/Project1.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project1/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project1/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project1/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project1/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project1/cmake-build-debug/Project1.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project1/cmake-build-debug/Project1.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project1/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project1/main.cpp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MakefileLocalSettings">
+    <option name="availableProjects">
+      <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="cmake-build-debug" />
+              <option name="path" value="$PROJECT_DIR$" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="cmake-build-debug" />
+                <option name="path" value="D:\Zach\Documents\Computer-Science-Labs-and-Projects\Lab6\cmake-build-debug" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectId" id="1kFRMGlddM0CSYGNZoUqZ8AYDHd" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6a4dfbaf-5882-406d-a8d6-37d743c7790f" name="Default Changelist" comment="" />
+      <created>1605294302374</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1605294302374</updated>
+      <workItem from="1605294303461" duration="7000" />
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="518" y="424" width="883" height="208" key="makefile.clean.confirm.dialog" timestamp="1605294307204">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="518" y="424" width="883" height="208" key="makefile.clean.confirm.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605294307204" />
+  </component>
+</project>

@@ -9,10 +9,26 @@
 
 class LegoSet {
     std::string setNumber;
-    std::string theme;
+    std::string setTheme;
     std::string setName;
     unsigned int totalParts;
+    unsigned int totalMinifigs;
     double setPrice;
+public:
+    //Constructors
+    LegoSet();
+    LegoSet(std::string setNum, std::string theme, std::string name,unsigned int minifigs, unsigned int parts, double price);
+
+
+
+    //Getters
+    std::string GetSetNumber();
+    std::string GetSetTheme();
+    std::string GetSetName();
+    unsigned int GetTotalMinifigs() const;
+    unsigned int GetTotalParts() const;
+    double GetSetPrice() const;
+
 
 
 };

@@ -11,7 +11,7 @@ void TestAssignment();
 int main()
 {
     int testNum;
-    cin >> testNum;
+    testNum = 3;
     if (testNum == 1)
         TestFindAll();
     else if (testNum == 2)

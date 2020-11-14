@@ -142,6 +142,33 @@ Project1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/build
 .PHONY : Project1/fast
 
+leaker.obj: leaker.cpp.obj
+
+.PHONY : leaker.obj
+
+# target to build an object file
+leaker.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/leaker.cpp.obj
+.PHONY : leaker.cpp.obj
+
+leaker.i: leaker.cpp.i
+
+.PHONY : leaker.i
+
+# target to preprocess a source file
+leaker.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/leaker.cpp.i
+.PHONY : leaker.cpp.i
+
+leaker.s: leaker.cpp.s
+
+.PHONY : leaker.s
+
+# target to generate assembly for a file
+leaker.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/leaker.cpp.s
+.PHONY : leaker.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -178,6 +205,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Project1
+	@echo ... leaker.obj
+	@echo ... leaker.i
+	@echo ... leaker.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

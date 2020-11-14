@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project1/leaker.cpp" "D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project1/cmake-build-debug/CMakeFiles/Project1.dir/leaker.cpp.obj"
   "D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project1/main.cpp" "D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project1/cmake-build-debug/CMakeFiles/Project1.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

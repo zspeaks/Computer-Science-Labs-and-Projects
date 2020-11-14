@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Zach/Documents/Computer-Science-Labs-and-Projects/Lab4/LegoSet.h
+string
+D:/Zach/Documents/Computer-Science-Labs-and-Projects/Lab4/string
+
+D:/Zach/Documents/Computer-Science-Labs-and-Projects/Lab4/main.cpp
+iomanip
+-
+iostream
+-
+LegoSet.h
+D:/Zach/Documents/Computer-Science-Labs-and-Projects/Lab4/LegoSet.h
+vector
+D:/Zach/Documents/Computer-Science-Labs-and-Projects/Lab4/vector
+fstream
+D:/Zach/Documents/Computer-Science-Labs-and-Projects/Lab4/fstream
+
