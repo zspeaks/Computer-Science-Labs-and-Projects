@@ -8,18 +8,18 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug"/>
+				<Option working_dir="C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Project2">
-				<Option output="D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug/Project2.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug"/>
+				<Option output="C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug/Project2.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -32,15 +32,15 @@
 					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include-fixed"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 Project2"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 Project2"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Project2/fast">
-				<Option output="D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug/Project2.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug"/>
+				<Option output="C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug/Project2.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -53,43 +53,43 @@
 					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include-fixed"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 Project2/fast"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 Project2/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug"/>
+				<Option working_dir="C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug"/>
+				<Option working_dir="C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug/src/Image.cpp">
+		<Unit filename="C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug/src/Image.cpp">
 			<Option target="Project2"/>
 		</Unit>
-		<Unit filename="D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug/src/Image.h">
+		<Unit filename="C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug/src/Image.h">
 			<Option target="Project2"/>
 		</Unit>
-		<Unit filename="D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/cmake-build-debug/src/main.cpp">
+		<Unit filename="C:/Users/zacha/Computer Science Labs and Projects/Project 2/cmake-build-debug/src/main.cpp">
 			<Option target="Project2"/>
 		</Unit>
-		<Unit filename="D:/Zach/Documents/Computer-Science-Labs-and-Projects/Project 2/CMakeLists.txt">
+		<Unit filename="C:/Users/zacha/Computer Science Labs and Projects/Project 2/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

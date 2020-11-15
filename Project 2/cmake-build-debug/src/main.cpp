@@ -17,6 +17,7 @@ Image ScaleColor(const Image& image, int channel, float scaleFactor);
 Image Merge(const string& location1, const string& location2, const string& location3);
 void Split(const Image& image, const string& location1, const string& location2, const string& location3);
 Image Flip(const Image& image);
+Image Join(const string& string1,const string& string2,const string& string3,const string& string4);
 
 
 
@@ -50,7 +51,7 @@ int main(){
     if(!Test(task2,"examples/EXAMPLE_part2.tga")){
         cout << "Ya Done Goofed";
     }
-    WriteImage(task1,"output/part2.tga");
+    WriteImage(task2,"output/part2.tga");
 
 
     cout << "Completing Task 3" << endl;
@@ -67,11 +68,11 @@ int main(){
     if(!Test(topLayer,"input/text.tga")){
         cout << "Ya Done Goofed on load 3";
     } else cout<< "Load 3 looks good";
-    Image Task3 = Screen(topLayer, temp3);
-    if(!Test(task2,"examples/EXAMPLE_part3.tga")){
+    Image task3 = Screen(topLayer, temp3);
+    if(!Test(task3,"examples/EXAMPLE_part3.tga")){
         cout << "Ya Done Goofed";
     }
-    WriteImage(task1,"output/part3.tga");
+    WriteImage(task3,"output/part3.tga");
 
 
 
@@ -93,7 +94,7 @@ int main(){
     if(!Test(task4,"examples/EXAMPLE_part4.tga")){
         cout << "Ya Done Goofed";
     }
-    WriteImage(task1,"output/part4.tga");
+    WriteImage(task4,"output/part4.tga");
 
 
 
@@ -110,7 +111,7 @@ int main(){
     if(!Test(task5,"examples/EXAMPLE_part5.tga")){
         cout << "Ya Done Goofed";
     }
-    WriteImage(task1,"output/part5.tga");
+    WriteImage(task5,"output/part5.tga");
 
 
 
@@ -123,7 +124,7 @@ int main(){
     if(!Test(task6,"examples/EXAMPLE_part6.tga")){
         cout << "Ya Done Goofed";
     }
-    WriteImage(task1,"output/part6.tga");
+    WriteImage(task6,"output/part6.tga");
 
 
     cout << "Completing Task 7" << endl;
@@ -131,12 +132,11 @@ int main(){
     if(!Test(topLayer,"input/car.tga")){
         cout << "Ya Done Goofed on load 1";
     } else cout<< "Load one looks good";
-    Image temp7 = ScaleColor(topLayer, 0, 4);
-    Image task7 = ScaleColor(temp7, 2,0);
+    Image task7 = ScaleColor(topLayer, 2, 4);
     if(!Test(task7,"examples/EXAMPLE_part7.tga")){
         cout << "Ya Done Goofed";
     }
-    WriteImage(task1,"output/part7.tga");
+    WriteImage(task7,"output/part7.tga");
 
 
 
@@ -151,14 +151,14 @@ int main(){
 
     cout << "Completing Task 9" << endl;
     Image task9 = Merge( "input/layer_red.tga",  "input/layer_green.tga", "input/layer_blue.tga");
-    if(!Test(task4,"examples/EXAMPLE_part9.tga")){
+    if(!Test(task9,"examples/EXAMPLE_part9.tga")){
         cout << "Ya Done Goofed";
     }
-    WriteImage(task1,"output/part9.tga");
+    WriteImage(task9,"output/part9.tga");
 
     cout << "Completing Task 10" << endl;
     topLayer = OpenImage("input/text2.tga");
-    if(!Test(topLayer,"text2/car.tga")){
+    if(!Test(topLayer,"input/text2.tga")){
         cout << "Ya Done Goofed on load 1";
     } else cout<< "Load one looks good";
     Image task10 = Flip(topLayer);
@@ -166,6 +166,11 @@ int main(){
         cout << "Ya Done Goofed";
     }
     WriteImage(task10,"output/part10.tga");
+
+    cout << "Completing EC" << endl;
+    Image task11 = Join("input/text.tga", "input/pattern1.tga", "input/car.tga","input/circles.tga");
+    Test(task11, "examples/EXAMPLE_extracredit.tga");
+    WriteImage(task11,"output/extracredit.tga");
 
 
     return 1;
@@ -194,9 +199,9 @@ Image OpenImage(const string& fileName){
 
     for(short i = 0; i < returnImage.height;i++) {
         for (short j = 0; j < returnImage.width; j++) {
-            file.read((char*)&redChar, sizeof(redChar));
-            file.read((char*)&greenChar, sizeof(greenChar));
             file.read((char*)&blueChar, sizeof(blueChar));
+            file.read((char*)&greenChar, sizeof(greenChar));
+            file.read((char*)&redChar, sizeof(redChar));
             returnImage.redVec.push_back(redChar);
             returnImage.blueVec.push_back(blueChar);
             returnImage.greenVec.push_back(greenChar);
@@ -226,9 +231,9 @@ void WriteImage(const Image& image, const string& fileName){
 
     for(short i = 0; i < image.height;i++) {
         for (short j = 0; j < image.width; j++) {
-            file.write((char*)&image.redVec[image.width*i + j], sizeof(unsigned char));
-            file.write((char*)&image.greenVec[image.width*i + j], sizeof(unsigned char));
             file.write((char*)&image.blueVec[image.width*i + j], sizeof(unsigned char));
+            file.write((char*)&image.greenVec[image.width*i + j], sizeof(unsigned char));
+            file.write((char*)&image.redVec[image.width*i + j], sizeof(unsigned char));
         }
     }
 }
@@ -354,9 +359,22 @@ Image Subtract(const Image& top, const Image& bottom){
     Image returnImage = Image();
     returnImage.CopyHeader(top);
     for (unsigned int i = 0; i < top.redVec.size(); ++i) {
-        returnImage.redVec.push_back((unsigned char) ((unsigned int) bottom.redVec[i]-top.redVec[i]));
-        returnImage.greenVec.push_back((unsigned char) ((unsigned int) bottom.greenVec[i]-top.greenVec[i]));
-        returnImage.blueVec.push_back((unsigned char) ((unsigned int) bottom.blueVec[i]-top.blueVec[i]));
+        int redDiff = bottom.redVec[i]-top.redVec[i];
+        if (redDiff < 0){
+            redDiff = 0;
+        }
+        int greenDiff = bottom.greenVec[i]-top.greenVec[i];
+        if (greenDiff < 0){
+            greenDiff = 0;
+        }
+        int blueDiff = bottom.blueVec[i]-top.blueVec[i];
+        if (blueDiff < 0){
+            blueDiff = 0;
+        }
+
+        returnImage.redVec.push_back((unsigned char)redDiff);
+        returnImage.greenVec.push_back((unsigned char) greenDiff);
+        returnImage.blueVec.push_back((unsigned char) blueDiff);
     }
     return returnImage;
 }
@@ -502,7 +520,11 @@ Image FlatScaleColor(const Image& image, int channel, unsigned char amount){
     }
     else if(channel ==1){
         for (int i = 0; i < image.redVec.size(); ++i) {
-            returnImage.greenVec.push_back(image.greenVec[i] + amount);
+            int greenNew = image.greenVec[i] + amount;
+            if (greenNew > 255){
+                greenNew = 255;
+            }
+            returnImage.greenVec.push_back(greenNew);
             returnImage.redVec.push_back(image.redVec[i]);
             returnImage.blueVec.push_back(image.blueVec[i]);
         }
@@ -524,48 +546,14 @@ Image FlatScaleColor(const Image& image, int channel, unsigned char amount){
 Image ScaleColor(const Image& image, int channel, float scaleFactor){
     Image returnImage = Image();
     returnImage.CopyHeader(image);
-    if (channel == 0){
-        for (int i = 0; i < image.redVec.size(); ++i) {
-            unsigned char redValTop;
-            float scaledRedValTop;
-
-            redValTop = image.redVec[i];
-            scaledRedValTop = redValTop / 255.0f;
-            scaledRedValTop = scaledRedValTop * scaleFactor;
-
-            returnImage.redVec.push_back(255*scaledRedValTop + .5f);
-            returnImage.greenVec.push_back(image.greenVec[i]);
-            returnImage.blueVec.push_back(image.blueVec[i]);
+    for (unsigned int i = 0; i < image.redVec.size(); ++i) {
+        float tempRed = 4.0f * image.redVec[i];
+        if (tempRed > 255){
+            tempRed = 255;
         }
-    }
-    else if(channel ==1){
-        for (int i = 0; i < image.redVec.size(); ++i) {
-            unsigned char redValTop;
-            float scaledRedValTop;
-
-            redValTop = image.greenVec[i];
-            scaledRedValTop = redValTop / 255.0f;
-            scaledRedValTop = scaledRedValTop * scaleFactor;
-
-
-            returnImage.greenVec.push_back(255*scaledRedValTop + .5f);
-            returnImage.redVec.push_back(image.redVec[i]);
-            returnImage.blueVec.push_back(image.blueVec[i]);
-        }
-    }
-    else if (channel == 2){
-        for (int i = 0; i < image.redVec.size(); ++i) {
-            unsigned char redValTop;
-            float scaledRedValTop;
-
-            redValTop = image.blueVec[i];
-            scaledRedValTop = redValTop / 255.0f;
-            scaledRedValTop = scaledRedValTop * scaleFactor;
-
-            returnImage.blueVec.push_back(255*scaledRedValTop + .5f);
-            returnImage.greenVec.push_back(image.greenVec[i]);
-            returnImage.redVec.push_back(image.redVec[i]);
-        }
+        returnImage.redVec.push_back((unsigned char)tempRed);
+        returnImage.greenVec.push_back(image.greenVec[i]);
+        returnImage.blueVec.push_back(0);
     }
     return returnImage;
 
@@ -599,20 +587,30 @@ void Split(const Image& image,const string& location1, const string& location2, 
     Image image2 = Image();
     Image image3 = Image();
 
+    image1.CopyHeader(image);
+    image2.CopyHeader(image);
+    image3.CopyHeader(image);
+
     for (unsigned int i = 0; i < image.redVec.size(); ++i) {
         image1.redVec.push_back(image.redVec[i]);
+        image1.blueVec.push_back(image.redVec[i]);
+        image1.greenVec.push_back(image.redVec[i]);
+
+        image2.redVec.push_back(image.greenVec[i]);
+        image2.blueVec.push_back(image.greenVec[i]);
         image2.greenVec.push_back(image.greenVec[i]);
+
+        image3.redVec.push_back(image.blueVec[i]);
         image3.blueVec.push_back(image.blueVec[i]);
+        image3.greenVec.push_back(image.blueVec[i]);
+
     }
+    Test(image1, "examples/EXAMPLE_part8_r.tga");
+    Test(image2, "examples/EXAMPLE_part8_g.tga");
+    Test(image3, "examples/EXAMPLE_part8_b.tga");
 
-    image1.greenVec = std::vector<unsigned char> (image1.redVec.size(), 0);
-    image1.blueVec = std::vector<unsigned char> (image1.redVec.size(), 0);
 
-    image2.redVec = std::vector<unsigned char> (image2.greenVec.size(), 0);
-    image2.blueVec = std::vector<unsigned char> (image2.greenVec.size(), 0);
 
-    image3.greenVec = std::vector<unsigned char> (image3.blueVec.size(), 0);
-    image3.redVec = std::vector<unsigned char> (image3.blueVec.size(), 0);
 
     WriteImage(image1, location1);
     WriteImage(image2, location2);
@@ -622,11 +620,52 @@ Image Flip(const Image& image){
     Image returnImage = Image();
     returnImage.CopyHeader(image);
 
-    for (short  i = image.height;i > 0; i--) {
-        for (short j = image.width; j > 0; j--) {
-            returnImage.redVec.push_back(image.redVec[image.width*i + j]);
-            returnImage.greenVec.push_back(image.greenVec[image.width*i + j]);
-            returnImage.blueVec.push_back(image.blueVec[image.width*i + j]);
+    for (unsigned int i = 0;i<image.redVec.size();i++){
+        returnImage.redVec.push_back(image.redVec[image.redVec.size() - 1 -i]);
+        returnImage.greenVec.push_back(image.greenVec[image.redVec.size() - 1 -i]);
+        returnImage.blueVec.push_back(image.blueVec[image.redVec.size() - 1 -i]);
+    }
+    return returnImage;
+}
+
+Image Join(const string& string1,const string& string2,const string& string3,const string& string4){
+    Image text = OpenImage(string1);
+    Image pattern = OpenImage(string2);
+    Image car = OpenImage(string3);
+    Image circles = OpenImage(string4);
+
+    Image returnImage = Image();
+    returnImage.CopyHeader(text);
+    returnImage.height = 2 * returnImage.height;
+    returnImage.width = 2 * returnImage.width;
+
+    for (short i = 0; i < returnImage.height; ++i) {
+        for (short j = 0; j < returnImage.width; ++j) {
+            if (i < text.height){
+                if (j < text.width){
+                    returnImage.redVec.push_back(text.redVec[i*text.width + j]);
+                    returnImage.greenVec.push_back(text.greenVec[i*text.width + j]);
+                    returnImage.blueVec.push_back(text.blueVec[i*text.width + j]);
+                } else{
+                    returnImage.redVec.push_back(pattern.redVec[i*text.width + (j-text.width)]);
+                    returnImage.greenVec.push_back(pattern.greenVec[i*text.width + (j-text.width)]);
+                    returnImage.blueVec.push_back(pattern.blueVec[i*text.width + (j-text.width)]);
+                }
+            } else{
+                if (j < car.width){
+                    returnImage.redVec.push_back(car.redVec[(i-text.height)*text.width + j]);
+                    returnImage.greenVec.push_back(car.greenVec[(i-text.height)*text.width + j]);
+                    returnImage.blueVec.push_back(car.blueVec[(i-text.height)*text.width + j]);
+
+                } else{
+                    returnImage.redVec.push_back(circles.redVec[(i-text.height)*text.width + (j-text.width)]);
+                    returnImage.greenVec.push_back(circles.greenVec[(i-text.height)*text.width + (j-text.width)]);
+                    returnImage.blueVec.push_back(circles.blueVec[(i-text.height)*text.width + (j-text.width)]);
+
+                }
+            }
+
+
         }
     }
     return returnImage;
